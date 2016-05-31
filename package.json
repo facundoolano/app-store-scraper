@@ -1,0 +1,37 @@
+{
+  "name": "app-store-scraper",
+  "version": "0.1.0",
+  "description": "scrape data from the itunes app store",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/facundoolano/app-store-scraper.git"
+  },
+  "keywords": [
+    "mac",
+    "app",
+    "store",
+    "itunes",
+    "scraper"
+  ],
+  "author": "Facundo Olano",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/facundoolano/app-store-scraper/issues"
+  },
+  "homepage": "https://github.com/facundoolano/app-store-scraper#readme",
+  "dependencies": {
+    "request-promise": "^3.0.0",
+    "superagent": "^2.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^2.8.0",
+    "eslint-config-semistandard": "^6.0.1",
+    "eslint-config-standard": "^5.1.0",
+    "eslint-plugin-promise": "^1.1.0",
+    "eslint-plugin-standard": "^1.3.2"
+  }
+}
