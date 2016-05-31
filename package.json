@@ -24,8 +24,8 @@
   },
   "homepage": "https://github.com/facundoolano/app-store-scraper#readme",
   "dependencies": {
-    "request-promise": "^3.0.0",
-    "superagent": "^2.0.0"
+    "superagent": "^2.0.0",
+    "xml2js": "^0.4.16"
   },
   "devDependencies": {
     "eslint": "^2.8.0",
