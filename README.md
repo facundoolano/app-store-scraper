@@ -14,6 +14,7 @@ Available methods:
 - [list](#list): Retrieves a list of applications from one of the collections at iTunes.
 - [search](#search): Retrieves a list of apps that results of searching by the given term.
 - [suggest](#suggest): Given a string returns up to 50 suggestions to complete a search query term.
+- [similar](#similar): Returns the list of "customers also bought" apps shown in the app's detail page.
 
 ### app
 Retrieves the full detail of an application. Options:
@@ -139,6 +140,38 @@ Retrieves a list of apps that results of searching by the given term. Options:
 * `device`: the device to filter for. Defaults to `search.ALL`, available options are `search.ALL`, `search.MAC`, `search.IOS`.
 * `num`: the amount of elements to retrieve. Defaults to `50`, maximum allowed is `200`.
 
+Example:
+
+```js
+var store = require('app-store-scraper');
+
+store.search({
+  term: 'panda',
+  num: 2,
+  device: store.search.IOS
+})
+.then(console.log)
+.catch(console.log);
+```
+
+Results:
+
+```js
+[
+  { id: 903990394,
+    appId: 'com.pandarg.pxmobileapp',
+    title: 'Panda Express Chinese Kitchen',
+    (...)
+  },
+  {
+    id: 700970012,
+    appId: 'com.sgn.pandapop',
+    title: 'Panda Pop',
+    (...)
+  }
+]
+```
+
 ### suggest
 
 Given a string returns up to 50 suggestions to complete a search query term.
@@ -164,5 +197,39 @@ Results:
   { term: 'panda games', priority: '4773' },
   { term: 'panda pop 2', priority: '4695' },
   ...
+]
+```
+
+### similar
+Returns the list of "customers also bought" apps shown in the app's detail page. Options:
+
+* `id`: the iTunes "trackId" of the app, for example `553834731` for Candy Crush Saga. Either this or the `appId` should be provided.
+* `appId`: the iTunes "bundleId" of the app, for example `com.midasplayer.apps.candycrushsaga` for Candy Crush Saga. Either this or the `id` should be provided.
+
+Example:
+
+```js
+var store = require('app-store-scraper');
+
+store.similar({id: 553834731}).then(console.log).catch(console.log);
+```
+
+Results:
+
+```js
+[
+  {
+    id: 632285588,
+    appId: 'com.nerdyoctopus.dots',
+    title: 'Dots: A Game About Connecting',
+    (...)
+  },
+  {
+    id: 727296976,
+    appId: 'com.sgn.cookiejam',
+    title: 'Cookie Jam',
+    (...)
+  }
+  (...)
 ]
 ```
