@@ -78,7 +78,7 @@ Results:
 
 Retrieves a list of applications from one of the collections at iTunes. Options:
 
-* `collection`: the collection to look up. Defaults to `list.collection.TOP_FREE_IOS`, available options can be found [here](https://github.com/facundoolano/app-store-scraper/blob/master/lib/constants.js#L3).
+* `collection`: the collection to look up. Defaults to `collection.TOP_FREE_IOS`, available options can be found [here](https://github.com/facundoolano/app-store-scraper/blob/master/lib/constants.js#L3).
 * `category`: the application category to filter for. Defaults to no category, available options can be found [here](https://github.com/facundoolano/app-store-scraper/blob/master/lib/constants.js#L22)
 * `country`: the two letter country code to get the list from. Defaults to `us`.
 * `num`: the amount of elements to retrieve. Defaults to `50`, maximum allowed is `200`.
@@ -89,8 +89,8 @@ Example:
 var store = require('app-store-scraper');
 
 store.list({
-  collection: store.list.collection.TOP_FREE_IPAD,
-  category: store.list.category.GAMES_ACTION,
+  collection: store.collection.TOP_FREE_IPAD,
+  category: store.category.GAMES_ACTION,
   num: 2
 })
 .then(console.log)
