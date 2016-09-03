@@ -15,6 +15,7 @@ Available methods:
 - [search](#search): Retrieves a list of apps that results of searching by the given term.
 - [suggest](#suggest): Given a string returns up to 50 suggestions to complete a search query term.
 - [similar](#similar): Returns the list of "customers also bought" apps shown in the app's detail page.
+- [reviews](#reviews): Retrieves a page of reviews for the app.
 
 ### app
 Retrieves the full detail of an application. Options:
