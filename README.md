@@ -233,3 +233,48 @@ Results:
   (...)
 ]
 ```
+
+### reviews
+
+Retrieves a page of reviews for the app. Options:
+
+* `id`: the iTunes "trackId" of the app, for example `553834731` for Candy Crush Saga. Either this or the `appId` should be provided.
+* `appId`: the iTunes "bundleId" of the app, for example `com.midasplayer.apps.candycrushsaga` for Candy Crush Saga. Either this or the `id` should be provided.
+* `country`: the two letter country code to get the reviews from. Defaults to `us`.
+* `page`: the review page number to retrieve. Defaults to `1`, maximum allowed is `10`.
+* `sort`: the review sort order. Defaults to `store.sort.RECENT`, available options are `store.sort.RECENT` and `store.sort.HELPFUL`.
+
+Example:
+
+```js
+var store = require('app-store-scraper');
+
+store.reviews({
+  appId: 'com.midasplayer.apps.candycrushsaga',
+  sort: itunes.sort.HELPFUL,
+  page: 2
+})
+.then(console.log)
+.catch(console.log);
+```
+
+Returns:
+
+```js
+[ { userName: 'Linda D. Lopez',
+    userUrl: 'https://itunes.apple.com/us/reviews/id324568166',
+    version: '1.80.1',
+    score: 5,
+    title: 'Great way to pass time or unwind',
+    text: 'I was a fan of Bejeweled many moons ago...',
+    url: 'https://itunes.apple.com/us/review?id=553834731&type=Purple%20Software' },,
+  { userName: 'Jennamaxkidd',
+    userUrl: 'https://itunes.apple.com/us/reviews/id223990784',
+    version: '1.80.1',
+    score: 1,
+    title: 'Help! THE PROBLEM IS NOT FIXED!',
+    text: 'STILL HAVING THE SAME ISSUE.  It\'s happening again...',
+    url: 'https://itunes.apple.com/us/review?id=553834731&type=Purple%20Software' },
+  (...)
+]
+```
