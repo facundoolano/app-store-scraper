@@ -7,7 +7,7 @@ The goal is to provide an interface as close as possible to the
 ```
 npm install app-store-scraper
 ```
-
+ 
 ## Usage
 Available methods:
 - [app](#app): Retrieves the full detail of an application.
