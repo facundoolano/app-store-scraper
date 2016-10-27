@@ -50,6 +50,7 @@ Results:
   requiredOsVersion: '5.1.1',
   released: '2012-11-14T14:41:32Z',
   updated: '2016-05-31T06:39:52Z',
+  releaseNotes: 'We are back with a tasty Candy Crush Saga update ...',
   version: '1.76.1',
   price: 0,
   currency: 'USD',
@@ -184,7 +185,7 @@ Example:
 ```js
 var store = require('app-store-scraper');
 
-store.suggest('panda').then(console.log).catch(console.log);
+store.suggest({term: 'panda'}).then(console.log).catch(console.log);
 ```
 
 Results:
@@ -262,14 +263,16 @@ store.reviews({
 Returns:
 
 ```js
-[ { userName: 'Linda D. Lopez',
+[ { id: '1472864600',
+    userName: 'Linda D. Lopez',
     userUrl: 'https://itunes.apple.com/us/reviews/id324568166',
     version: '1.80.1',
     score: 5,
     title: 'Great way to pass time or unwind',
     text: 'I was a fan of Bejeweled many moons ago...',
     url: 'https://itunes.apple.com/us/review?id=553834731&type=Purple%20Software' },,
-  { userName: 'Jennamaxkidd',
+  { id: '1472864708',
+    userName: 'Jennamaxkidd',
     userUrl: 'https://itunes.apple.com/us/reviews/id223990784',
     version: '1.80.1',
     score: 1,
