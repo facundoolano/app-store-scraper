@@ -10,6 +10,14 @@ describe('Search method', () => {
     .then((apps) => apps.map(assertValidApp));
   });
 
+  it('should fetch a valid application list in fr country', () => {
+    return store.search({country: 'fr', term: 'Panda vs Zombies'})
+    .then((apps) => {
+      apps.map(assertValidApp);
+      assert(apps[0]['url'].slice(0, 27) === 'https://itunes.apple.com/fr', 'should return french app');
+    });
+  });
+
   it('should validate the results number', function () {
     const count = 5;
     return store.search({
