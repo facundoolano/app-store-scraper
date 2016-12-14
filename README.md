@@ -7,7 +7,7 @@ The goal is to provide an interface as close as possible to the
 ```
 npm install app-store-scraper
 ```
- 
+
 ## Usage
 Available methods:
 - [app](#app): Retrieves the full detail of an application.
@@ -141,6 +141,7 @@ Retrieves a list of apps that results of searching by the given term. Options:
 * `term`: the term to search for (required).
 * `device`: the device to filter for. Defaults to `store.device.ALL`, available options are `store.device.ALL`, `store.dvice.MAC`, `store.device.IOS`.
 * `num`: the amount of elements to retrieve. Defaults to `50`, maximum allowed is `200`.
+* `country`: the two letter country code to get the similar apps from. Defaults to `us`.
 
 Example:
 
@@ -150,7 +151,8 @@ var store = require('app-store-scraper');
 store.search({
   term: 'panda',
   num: 2,
-  device: store.device.IOS
+  device: store.device.IOS,
+  country : 'us'
 })
 .then(console.log)
 .catch(console.log);
@@ -207,13 +209,14 @@ Returns the list of "customers also bought" apps shown in the app's detail page.
 
 * `id`: the iTunes "trackId" of the app, for example `553834731` for Candy Crush Saga. Either this or the `appId` should be provided.
 * `appId`: the iTunes "bundleId" of the app, for example `com.midasplayer.apps.candycrushsaga` for Candy Crush Saga. Either this or the `id` should be provided.
+* `country`: the two letter country code to get the similar apps from. Defaults to `us`.
 
 Example:
 
 ```js
 var store = require('app-store-scraper');
 
-store.similar({id: 553834731}).then(console.log).catch(console.log);
+store.similar({id: 553834731, country : 'us'}).then(console.log).catch(console.log);
 ```
 
 Results:
