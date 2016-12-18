@@ -27,7 +27,7 @@
     "debug": "^2.2.0",
     "memoizee": "^0.3.10",
     "ramda": "^0.21.0",
-    "superagent": "^2.0.0",
+    "request": "^2.79.0",
     "xml2js": "^0.4.16"
   },
   "devDependencies": {
