@@ -40,7 +40,9 @@ describe('App method', () => {
         assert(app.free === true);
 
         assert.equal(app.developer, 'King');
-        assertValidUrl(app.developerWebsite);
+        if (app.developerWebsite) {
+          assertValidUrl(app.developerWebsite);
+        }
 
         assert(app.screenshots.length);
         app.screenshots.map(assertValidUrl);
