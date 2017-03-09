@@ -7,6 +7,8 @@ const assertValidUrl = require('./common').assertValidUrl;
 function assertValid (review) {
   assert.isString(review.id);
   assert(review.id);
+  assert(review.date);
+  assert.instanceOf(review.date, Date);
   assert.isString(review.userName);
   assert(review.userName);
   assert.isString(review.title);
