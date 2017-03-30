@@ -139,7 +139,7 @@ Returns:
 Retrieves a list of apps that results of searching by the given term. Options:
 
 * `term`: the term to search for (required).
-* `device`: the device to filter for. Defaults to `store.device.ALL`, available options are `store.device.ALL`, `store.device.MAC`, `store.device.IOS`.
+* `device`: the device to filter for. Defaults to `store.device.ALL`, available options are `store.device.ALL`, `store.device.MAC`, `store.device.IPAD`.
 * `num`: the amount of elements to retrieve. Defaults to `50`, maximum allowed is `200`.
 * `country`: the two letter country code to get the similar apps from. Defaults to `us`.
 
@@ -151,7 +151,7 @@ var store = require('app-store-scraper');
 store.search({
   term: 'panda',
   num: 2,
-  device: store.device.IOS,
+  device: store.device.IPAD,
   country : 'us'
 })
 .then(console.log)
