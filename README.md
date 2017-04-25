@@ -287,3 +287,28 @@ Returns:
   (...)
 ]
 ```
+
+## Memoization
+
+By default all methods are not [memoized](https://github.com/medikoo/memoizee) which means the results are not cached.
+
+By enabling memoization, the request and response processing is skipped if a function is called again with the same arguments. The cached values are set to expire every 12 hours, refreshes the data once per day.
+
+In case you want to cache the results, you can pass `cache: true` to any method. But, in case you want to force fresh results, want to avoid the cache memory consumption altogether or you're running a simple short lived script, you don't need to pass any value to `cache` argument, since it's false by default:
+
+```js
+const store = require('app-store-scraper');
+
+// This request will hit the store and won't cache the results.
+store.search({term: "panda"}).then(console.log);
+
+// force to cache results (memoizing).
+store.search({term: "panda", cache: true}).then(console.log);
+
+// second call will return cached results.
+store.search({term: "panda", cache: true}).then(console.log);
+```
+
+If you are interested in seeing how may requests are being done, you can run
+your node program with `DEBUG=app-store-scraper`.
+
