@@ -292,9 +292,25 @@ Returns:
 
 By default all methods are not [memoized](https://github.com/medikoo/memoizee) which means the results are not cached.
 
-By enabling memoization, the request and response processing is skipped if a function is called again with the same arguments. The cached values are set to expire every 12 hours, refreshes the data once per day.
+By enabling memoization, the request and response processing is skipped if a function is called again with the same arguments.
 
-In case you want to cache the results, you can pass `cache: true` to any method. But, in case you want to force fresh results, want to avoid the cache memory consumption altogether or you're running a simple short lived script, you don't need to pass any value to `cache` argument, since it's false by default:
+In case you want to cache the results, you can pass `cache: true`, or your own cache configuration object to any method. With the simple `cache: true` a default configuration (see below) will be used, and the cached values are set to expire every 12 hours.
+
+But, if you want to force fresh results, want to avoid the cache memory consumption altogether or you're running a simple short lived script, you don't need to pass any value to `cache` argument, since it's `false` by default:
+
+See the default object configuration used in case of `cache: true`:
+
+```js
+{
+  primitive: true,
+  normalizer: JSON.stringify,
+  maxAge: 1000 * 60 * 60 * 12, // cache for 12 hours
+  max: 1000 // save up to 1k results to avoid memory issues
+}
+```
+More information about all arguments available, you can find [here](https://github.com/medikoo/memoizee).
+
+Examples of usage:
 
 ```js
 const store = require('app-store-scraper');
@@ -302,11 +318,11 @@ const store = require('app-store-scraper');
 // This request will hit the store and won't cache the results.
 store.search({term: "panda"}).then(console.log);
 
-// force to cache results (memoizing).
+// force to cache results (memoizing) using the default configuration.
 store.search({term: "panda", cache: true}).then(console.log);
 
-// second call will return cached results.
-store.search({term: "panda", cache: true}).then(console.log);
+// force to cache results for only 1 hour.
+store.search({term: "panda", cache: {maxAge: 1000 * 60 * 60}}).then(console.log);
 ```
 
 If you are interested in seeing how may requests are being done, you can run
