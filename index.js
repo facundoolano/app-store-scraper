@@ -13,3 +13,4 @@ module.exports.search = require('./lib/search');
 module.exports.suggest = require('./lib/suggest');
 module.exports.similar = require('./lib/similar');
 module.exports.reviews = require('./lib/reviews');
+module.exports.memoized = require('./lib/memoized.js');

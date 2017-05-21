@@ -287,3 +287,48 @@ Returns:
   (...)
 ]
 ```
+
+## Memoization
+
+By default all methods are not [memoized](https://github.com/medikoo/memoizee) which means the results are not cached.
+
+By enabling memoization, the request and response processing is skipped if a function is called again with the same arguments.
+
+In case you want to cache the results, you can use the memoized function: `const store = require('app-store-scraper').memoized()`.
+
+You can also pass your own cache configuration object to the memoized function, if you don't pass it, a default configuration (see below) will be used, and the cached values are set to expire every 12 hours.
+
+But, if you want to force fresh results, want to avoid the cache memory consumption altogether or you're running a simple short lived script, the simple `const store = require('app-store-scraper')` should be enough.
+
+See the default object configuration used in case of `cache: true`:
+
+```js
+{
+  primitive: true,
+  normalizer: JSON.stringify,
+  maxAge: 1000 * 60 * 60 * 12, // cache for 12 hours
+  max: 1000 // save up to 1k results to avoid memory issues
+}
+```
+The `primitive` property will be always `true` by default, the reason for that and more information about all arguments available for memoizee, you can find [here](https://github.com/medikoo/memoizee).
+
+Examples of usage:
+
+```js
+const store = require('app-store-scraper').memoized();
+
+// The first request will hit the store and cache the results.
+store.search({term: "panda"}).then(console.log);
+
+// This second one will hit the cache directly.
+store.search({term: "panda"}).then(console.log);
+
+// Passing an object to cache results only for 10 seconds.
+const store = require('app-store-scraper').memoized({maxAge: 10000});
+
+// The response for this request will be cached for 10 seconds.
+store.search({term: "panda"}).then(console.log);
+```
+
+If you are interested in seeing how may requests are being done and the cache configuration being used, you can run
+your node program with `DEBUG=app-store-scraper`.
