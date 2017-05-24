@@ -20,7 +20,8 @@ function memoized (opts) {
     maxAge: 1000 * 60 * 5, // cache for 5 minutes
     max: 1000 // save up to 1k results to avoid memory issues
   }, opts);
-  return R.map((fn) => memoizee(fn, cacheOpts), methods);
+  const doMemoize = (fn) => memoizee(fn, cacheOpts);
+  return Object.assign({}, constants, R.map(doMemoize, methods));
 }
 
 module.exports = Object.assign({memoized}, constants, methods);
