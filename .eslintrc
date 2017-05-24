@@ -9,6 +9,10 @@
     "standard"
   ],
   "rules": {
-    "no-unused-vars": [2, { "vars": "all", "args": "after-used" }]
+    "no-unused-vars": [2, { "vars": "all", "args": "after-used" }],
+    "no-var": "error",
+    "prefer-const": "error",
+    "no-else-return": "error",
+    "object-shorthand": ["error", "properties"]
   }
 }

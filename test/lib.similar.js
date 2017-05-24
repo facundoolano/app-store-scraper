@@ -9,6 +9,8 @@ describe('Similar method', () => {
     return store.similar({id: '553834731'})
     .then((apps) => apps.map(assertValidApp));
   });
+
+  // FIXME improve code
   it('should a different list in fr country', () => {
     return store.similar({id: '553834731'})
     .then((usApps) => {
@@ -21,8 +23,8 @@ describe('Similar method', () => {
     })
     .then((langApps) => {
       langApps.fr.map(assertValidApp);
-      var areDifferent = false;
-      for (var i = 0; i < langApps.fr.length; i++) {
+      let areDifferent = false;
+      for (let i = 0; i < langApps.fr.length; i++) {
         if (langApps.us[i] && langApps.fr[i] && langApps.us[i].id !== langApps.fr[i].id) {
           areDifferent = true;
         }
