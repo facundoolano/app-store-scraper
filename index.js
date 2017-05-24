@@ -17,7 +17,7 @@ function memoized (opts) {
   const cacheOpts = Object.assign({
     primitive: true,
     normalizer: JSON.stringify,
-    maxAge: 1000 * 60 * 60 * 12, // cache for 12 hours
+    maxAge: 1000 * 60 * 5, // cache for 5 minutes
     max: 1000 // save up to 1k results to avoid memory issues
   }, opts);
   return R.map((fn) => memoizee(fn, cacheOpts), methods);

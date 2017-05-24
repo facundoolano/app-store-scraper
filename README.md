@@ -287,3 +287,22 @@ Returns:
   (...)
 ]
 ```
+
+### Memoization
+
+Since every library call performs one or multiple requests to
+an iTunes API or web page, sometimes it can be useful tu cache the results
+to avoid requesting the same data twice. The `memoized` function returns a
+the store object that caches its results:
+
+``` javascript
+var store = require('app-store-scraper'); // regular non caching version
+var memoized = require('app-store-scraper').memoized(); // cache with default options
+var memoizedCustom = require('app-store-scraper').memoized({ maxAge: 1000 * 60 }); // cache with default options
+
+memoized.app({id: 553834731}) // will make a request
+  .then(() => memoized.app({id: 553834731})); // will resolve to the cached value without requesting
+```
+
+The options available are those supported by the [memoizee](https://github.com/medikoo/memoizee) module.
+By default up to 1000 values are cached by each method and they expire after 5 minutes.
