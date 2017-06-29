@@ -37,10 +37,10 @@ describe('List method', () => {
     return store.list({
       category: store.category.GAMES_ACTION,
       collection: store.collection.TOP_FREE_IOS,
-      num: 200
+      num: 250
     })
     .then(assert.fail)
-    .catch((e) => assert.equal(e.message, 'Cannot retrieve more than 100 apps at a time'));
+    .catch((e) => assert.equal(e.message, 'Cannot retrieve more than 200 apps'));
   });
 
   it('should fetch apps with fullDetail', () => {
