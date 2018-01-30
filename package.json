@@ -25,6 +25,7 @@
   "homepage": "https://github.com/facundoolano/app-store-scraper#readme",
   "dependencies": {
     "debug": "^2.2.0",
+    "isomorphic-unfetch": "^2.0.0",
     "memoizee": "^0.3.10",
     "ramda": "^0.21.0",
     "request": "^2.79.0",
