@@ -1,32 +1,28 @@
 'use strict';
 
 const assert = require('chai').assert;
-const assertValidApp = require('./common').assertValidApp;
 const assertValidUrl = require('./common').assertValidUrl;
 const store = require('../index');
 
+function assertValidApp (app) {
+  // list now returns less fields than the other methods
+  assert.isString(app.title);
+  assertValidUrl(app.url);
+  assertValidUrl(app.icon);
+  return app;
+}
+
 describe('List method', () => {
-  it('should fetch a valid application list for the given category and collection', () => {
+  it('should fetch a valid application list for the given collection', () => {
     return store.list({
-      category: store.category.GAMES_ACTION,
       collection: store.collection.TOP_FREE_IOS
     })
     .then((apps) => apps.map(assertValidApp))
-    .then((apps) => apps.map((app) => assert(app.free)));
-  });
-
-  it('should validate the category', () => {
-    return store.list({
-      category: 'wrong',
-      collection: store.collection.TOP_FREE_IOS
-    })
-    .then(assert.fail)
-    .catch((e) => assert.equal(e.message, 'Invalid category wrong'));
+    .then((apps) => apps.map((app) => assert.isNotEmpty(app.title)));
   });
 
   it('should validate the collection', () => {
     return store.list({
-      category: store.category.GAMES_ACTION,
       collection: 'wrong'
     })
     .then(assert.fail)
@@ -35,7 +31,6 @@ describe('List method', () => {
 
   it('should validate the results number', () => {
     return store.list({
-      category: store.category.GAMES_ACTION,
       collection: store.collection.TOP_FREE_IOS,
       num: 250
     })
@@ -43,10 +38,10 @@ describe('List method', () => {
     .catch((e) => assert.equal(e.message, 'Cannot retrieve more than 200 apps'));
   });
 
-  it('should fetch apps with fullDetail', () => {
+  // TODO full detail not implemented yet
+  it.skip('should fetch apps with fullDetail', () => {
     return store.list({
-      category: store.category.GAMES_ACTION,
-      collection: store.collection.TOP_FREE_IOS,
+      collection: store.collection.TOP_FREE_GAMES_IOS,
       fullDetail: true,
       num: 5
     })
@@ -54,8 +49,8 @@ describe('List method', () => {
     .then((apps) => apps.map((app) => {
       assert.isString(app.description);
 
-      assert.equal(app.genre, 'Games');
-      assert.equal(app.genreId, '6014');
+      assert.equal(app.genres[0], 'Games');
+      assert.equal(app.genreIds[0], '6014');
 
       assert.equal(app.price, '0');
       assert(app.free);
