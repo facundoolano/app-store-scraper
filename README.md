@@ -82,7 +82,6 @@ Results:
 Retrieves a list of applications from one of the collections at iTunes. Options:
 
 * `collection`: the collection to look up. Defaults to `collection.TOP_FREE_IOS`, available options can be found [here](https://github.com/facundoolano/app-store-scraper/blob/master/lib/constants.js#L3).
-* `category`: the application category to filter for. Defaults to no category, available options can be found [here](https://github.com/facundoolano/app-store-scraper/blob/master/lib/constants.js#L22)
 * `country`: the two letter country code to get the list from. Defaults to `us`.
 * `num`: the amount of elements to retrieve. Defaults to `50`, maximum allowed is `200`.
 
@@ -92,8 +91,7 @@ Example:
 var store = require('app-store-scraper');
 
 store.list({
-  collection: store.collection.TOP_FREE_IPAD,
-  category: store.category.GAMES_ACTION,
+  collection: store.collection.TOP_FREE_IPAD
   num: 2
 })
 .then(console.log)
@@ -104,35 +102,25 @@ Returns:
 
 ```js
 [ { id: '1091944550',
-    appId: 'com.hypah.io.slither',
     title: 'slither.io',
     icon: 'http://is4.mzstatic.com/image/thumb/Purple30/v4/68/d7/4d/68d74df4-f4e7-d4a4-a8ea-dbab686e5554/mzl.ujmngosn.png/100x100bb-85.png',
     url: 'https://itunes.apple.com/us/app/slither.io/id1091944550?mt=8&uo=2',
-    price: 0,
-    currency: 'USD',
-    free: true,
-    description: 'Play against other people online! ...',
     developer: 'Steve Howse',
     developerUrl: 'https://itunes.apple.com/us/developer/steve-howse/id867992583?mt=8&uo=2',
     developerId: '867992583',
-    genre: 'Games',
-    genreId: '6014',
-    released: '2016-03-25T10:01:46-07:00' },
+    genres: ['Games'],
+    genreIds: ['6014'],
+    released: '2016-03-25' },
   { id: '1046846443',
-    appId: 'com.ubisoft.hungrysharkworld',
     title: 'Hungry Shark World',
     icon: 'http://is5.mzstatic.com/image/thumb/Purple60/v4/08/1a/8d/081a8d06-b4d5-528b-fa8e-f53646b6f797/mzl.ehtjvlft.png/100x100bb-85.png',
     url: 'https://itunes.apple.com/us/app/hungry-shark-world/id1046846443?mt=8&uo=2',
-    price: 0,
-    currency: 'USD',
-    free: true,
-    description: 'The stunning sequel to Hungry ...',
     developer: 'Ubisoft',
     developerUrl: 'https://itunes.apple.com/us/developer/ubisoft/id317644720?mt=8&uo=2',
     developerId: '317644720',
-    genre: 'Games',
-    genreId: '6014',
-    released: '2016-05-04T09:43:06-07:00' } ]
+    genres: ['Games'],
+    genreIds: ['6014'],
+    released: '2016-05-04' } ]
 ```
 
 ### search
@@ -210,14 +198,13 @@ Returns the list of "customers also bought" apps shown in the app's detail page.
 
 * `id`: the iTunes "trackId" of the app, for example `553834731` for Candy Crush Saga. Either this or the `appId` should be provided.
 * `appId`: the iTunes "bundleId" of the app, for example `com.midasplayer.apps.candycrushsaga` for Candy Crush Saga. Either this or the `id` should be provided.
-* `country`: the two letter country code to get the similar apps from. Defaults to `us`.
 
 Example:
 
 ```js
 var store = require('app-store-scraper');
 
-store.similar({id: 553834731, country : 'us'}).then(console.log).catch(console.log);
+store.similar({id: 553834731}).then(console.log).catch(console.log);
 ```
 
 Results:
