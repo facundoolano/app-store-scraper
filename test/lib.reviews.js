@@ -7,8 +7,6 @@ const assertValidUrl = require('./common').assertValidUrl;
 function assertValid (review) {
   assert.isString(review.id);
   assert(review.id);
-  assert(review.date);
-  assert.instanceOf(review.date, Date);
   assert.isString(review.userName);
   assert(review.userName);
   assert.isString(review.title);
@@ -39,9 +37,9 @@ describe('Reviews method', () => {
   it('should validate the page', () => {
     return store.reviews({
       id: '553834731',
-      page: 10
+      page: 11
     })
     .then(assert.fail)
-    .catch((e) => assert.equal(e.message, 'Page cannot be greater than 9'));
+    .catch((e) => assert.equal(e.message, 'Page cannot be greater than 10'));
   });
 });

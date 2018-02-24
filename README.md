@@ -255,7 +255,6 @@ Returns:
 
 ```js
 [ { id: '1472864600',
-    date: '2017-03-08T08:08:00.000Z',
     userName: 'Linda D. Lopez',
     userUrl: 'https://itunes.apple.com/us/reviews/id324568166',
     version: '1.80.1',
@@ -264,7 +263,6 @@ Returns:
     text: 'I was a fan of Bejeweled many moons ago...',
     url: 'https://itunes.apple.com/us/review?id=553834731&type=Purple%20Software' },,
   { id: '1472864708',
-    date: '2017-02-08T08:08:00.000Z',
     userName: 'Jennamaxkidd',
     userUrl: 'https://itunes.apple.com/us/reviews/id223990784',
     version: '1.80.1',
