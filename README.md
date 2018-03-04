@@ -83,7 +83,11 @@ Retrieves a list of applications from one of the collections at iTunes. Options:
 
 * `collection`: the collection to look up. Defaults to `collection.TOP_FREE_IOS`, available options can be found [here](https://github.com/facundoolano/app-store-scraper/blob/master/lib/constants.js#L3).
 * `country`: the two letter country code to get the list from. Defaults to `us`.
-* `num`: the amount of elements to retrieve. Defaults to `50`, maximum allowed is `200`.
+* `num`: the amount of elements to retrieve. Defaults to `50`, maximum
+  allowed is `200`.
+* `fullDetail`: If this is set to `true`, an extra request will be
+  made to get extra attributes of the resulting applications (like
+  those returned by the `app` method).
 
 Example:
 
