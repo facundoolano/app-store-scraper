@@ -6,13 +6,13 @@ const assert = require('chai').assert;
 
 describe('Search method', () => {
   it('should fetch a valid application list', () => {
-    return store.search({term: 'Panda vs Zombies'})
+    return store.search({term: 'Panda vs Zombies', fullDetail: true})
     .then((apps) => apps.map(assertValidApp));
   });
 
   it('should properly paginate results', () => {
-    const p1 = store.search({term: 'Panda', num: 10});
-    const p2 = store.search({term: 'Panda', num: 10, page: 2});
+    const p1 = store.search({term: 'Panda', num: 10, fullDetail: true});
+    const p2 = store.search({term: 'Panda', num: 10, page: 2, fullDetail: true});
     return Promise.all([p1, p2])
       .then(([apps1, apps2]) => {
         assert.equal(10, apps1.length);
@@ -24,7 +24,7 @@ describe('Search method', () => {
   });
 
   it('should fetch a valid application list in fr country', () => {
-    return store.search({country: 'fr', term: 'Panda vs Zombies'})
+    return store.search({country: 'fr', term: 'Panda vs Zombies', fullDetail: true})
     .then((apps) => {
       apps.map(assertValidApp);
       assert(apps[0]['url'].slice(0, 27) === 'https://itunes.apple.com/fr', 'should return french app');
@@ -35,11 +35,24 @@ describe('Search method', () => {
     const count = 5;
     return store.search({
       term: 'vr',
-      num: count
+      num: count,
+      fullDetail: true
     })
     .then((apps) => {
       apps.map(assertValidApp);
       assert(apps.length === count, `should return ${count} items but ${apps.length} returned`);
+    });
+  });
+
+  it('should return app ids if fullDetail: false', function () {
+    const count = 5;
+    return store.search({
+      term: 'vr',
+      num: count
+    })
+    .then((appIds) => {
+      assert(appIds.length === count, `should return ${count} items but ${appIds.length} returned`);
+      assert(appIds.every(id => typeof id === 'string' && !/\D/.test(id)));
     });
   });
 
