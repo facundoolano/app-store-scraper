@@ -137,6 +137,9 @@ Retrieves a list of apps that results of searching by the given term. Options:
 * `country`: the two letter country code to get the similar apps
   from. Defaults to `us`.
 * `lang`: language code for the result text. Defaults to `en-us`.
+* `fullDetail`: If this is set to `true`, an extra request will be
+  made to get extra attributes of the resulting applications (like
+  those returned by the `app` method). Without this set to true array of ids will be returned.
 
 Example:
 
@@ -148,7 +151,8 @@ store.search({
   num: 2,
   page: 3,
   country : 'us',
-  lang: 'lang'
+  lang: 'lang',
+  fullDetail: true
 })
 .then(console.log)
 .catch(console.log);

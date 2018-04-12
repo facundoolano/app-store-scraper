@@ -60,4 +60,20 @@ describe('List method', () => {
       }
     }));
   });
+
+  it('should be able to set requestOptions', (done) => {
+    store.list({
+      collection: store.collection.TOP_FREE_GAMES_IOS,
+      num: 5,
+      requestOptions: {
+        method: 'DELETE'
+      }
+    })
+      .then(() => done('should not resolve'))
+      .catch((err) => {
+        assert.equal(err.response.statusCode, 501);
+        done();
+      })
+      .catch(done);
+  });
 });
