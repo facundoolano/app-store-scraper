@@ -4,8 +4,8 @@ const assert = require('chai').assert;
 const validator = require('validator');
 
 function assertValidUrl (url) {
-  return assert(validator.isURL(url, {allow_protocol_relative_urls: true}),
-                               `${url} is not a valid url`);
+  return assert(validator.isURL(url, { allow_protocol_relative_urls: true }),
+    `${url} is not a valid url`);
 }
 
 function assertValidApp (app) {
@@ -28,3 +28,10 @@ function assertValidApp (app) {
 }
 
 module.exports = { assertValidUrl, assertValidApp };
+
+process.on('rejectionHandled', () => {
+});
+process.on('unhandledRejection', (p, reason) => {
+  console.error('Unhandled Promise Rejection:', p);
+  reason.catch(err => console.error(err));
+});
