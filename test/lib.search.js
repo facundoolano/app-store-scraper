@@ -10,6 +10,11 @@ describe('Search method', () => {
     .then((apps) => apps.map(assertValidApp));
   });
 
+  it('should fetch a valid application list (utf8 term)', () => {
+    return store.search({term: 'Уборка в Доме', fullDetail: true})
+    .then((apps) => apps.map(assertValidApp));
+  });
+
   it('should properly paginate results', () => {
     const p1 = store.search({term: 'Panda', num: 10, fullDetail: true});
     const p2 = store.search({term: 'Panda', num: 10, page: 2, fullDetail: true});
