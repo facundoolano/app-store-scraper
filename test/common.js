@@ -28,10 +28,3 @@ function assertValidApp (app) {
 }
 
 module.exports = { assertValidUrl, assertValidApp };
-
-process.on('rejectionHandled', () => {
-});
-process.on('unhandledRejection', (p, reason) => {
-  console.error('Unhandled Promise Rejection:', p);
-  reason.catch(err => console.error(err));
-});
