@@ -42,4 +42,19 @@ describe('Search method', () => {
       assert(apps.length === count, `should return ${count} items but ${apps.length} returned`);
     });
   });
+
+  it('should be able to set requestOptions', (done) => {
+    store.search({
+      term: 'vr',
+      requestOptions: {
+        method: 'DELETE'
+      }
+    })
+      .then(() => done('should not resolve'))
+      .catch((err) => {
+        assert.equal(err.response.statusCode, 501);
+        done();
+      })
+      .catch(done);
+  });
 });

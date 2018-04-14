@@ -9,4 +9,19 @@ describe('Suggest method', () => {
       assert.equal(results.length, 50, `expected ${results} to have 50 elements`);
       results.map((r) => assert.include(r.term, 'p'));
     }));
+
+  it('should be able to set requestOptions', (done) => {
+    store.suggest({
+      term: 'p',
+      requestOptions: {
+        method: 'DELETE'
+      }
+    })
+      .then(() => done('should not resolve'))
+      .catch((err) => {
+        assert.equal(err.response.statusCode, 501);
+        done();
+      })
+      .catch(done);
+  });
 });

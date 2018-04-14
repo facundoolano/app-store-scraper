@@ -115,4 +115,19 @@ describe('App method', () => {
         assert.equal(app.title, 'Candy Crush Saga');
       });
   });
+
+  it('should be able to set requestOptions', (done) => {
+    store.app({
+      id: '553834731',
+      requestOptions: {
+        method: 'DELETE'
+      }
+    })
+      .then(() => done('should not resolve'))
+      .catch((err) => {
+        assert.equal(err.response.statusCode, 501);
+        done();
+      })
+      .catch(done);
+  });
 });
