@@ -61,7 +61,7 @@ describe('Search method', () => {
   it('should be able to retrieve array of application ids', (done) => {
     store.search({
       term: 'vr',
-      skipAdditionalLookup: true
+      idsOnly: true
     })
       .then(res => {
         assert.isArray(res);
