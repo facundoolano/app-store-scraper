@@ -8,18 +8,14 @@ function assertValidUrl (url) {
     `${url} is not a valid url`);
 }
 
-function assertValidApp (app) {
+function assertPartialValidApp (app) {
   assert.isString(app.appId);
   assert.isString(app.title);
-  assert.isString(app.description);
   assertValidUrl(app.url);
   assertValidUrl(app.icon);
 
   if (app.score !== undefined) {
-    // would fail for new apps without score
     assert.isNumber(app.score);
-    assert(app.score > 0);
-    assert(app.score <= 5);
   }
 
   assert.isBoolean(app.free);
@@ -27,4 +23,17 @@ function assertValidApp (app) {
   return app;
 }
 
-module.exports = { assertValidUrl, assertValidApp };
+function assertValidApp (app) {
+  assertPartialValidApp(app);
+  assert.isString(app.description);
+
+  if (app.score !== undefined) {
+    // would fail for new apps without score
+    assert.isTrue(app.score > 0, 'app has negative rating');
+    assert.isTrue(app.score <= 5, 'app rating is larger than 5');
+  }
+
+  return app;
+}
+
+module.exports = { assertValidUrl, assertValidApp, assertPartialValidApp };
