@@ -57,4 +57,17 @@ describe('Search method', () => {
       })
       .catch(done);
   });
+
+  it('should be able to retrieve array of application ids', (done) => {
+    store.search({
+      term: 'vr',
+      idsOnly: true
+    })
+      .then(res => {
+        assert.isArray(res);
+        assert.isTrue(res.every(item => typeof item === 'string'));
+        done();
+      })
+      .catch(done);
+  });
 });

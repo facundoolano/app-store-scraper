@@ -88,6 +88,7 @@ Retrieves a list of applications from one of the collections at iTunes. Options:
 * `fullDetail`: If this is set to `true`, an extra request will be
   made to get extra attributes of the resulting applications (like
   those returned by the `app` method).
+* `idsOnly`: (optional, defaults to `false`): skip extra lookup request. Search results will contain array of application ids.
 
 Example:
 
@@ -137,6 +138,7 @@ Retrieves a list of apps that results of searching by the given term. Options:
 * `country`: the two letter country code to get the similar apps
   from. Defaults to `us`.
 * `lang`: language code for the result text. Defaults to `en-us`.
+* `idsOnly`: (optional, defaults to `false`): skip extra lookup request. Search results will contain array of application ids.
 
 Example:
 
