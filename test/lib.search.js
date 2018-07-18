@@ -4,7 +4,7 @@ const store = require('../index');
 const { assertValidApp, assertPartialValidApp } = require('./common');
 const assert = require('chai').assert;
 
-describe.only('Search method', () => {
+describe('Search method', () => {
   it('should fetch a valid application list', () => {
     return store
       .search({ term: 'Panda vs Zombies' })
