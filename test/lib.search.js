@@ -58,7 +58,7 @@ describe('Search method', () => {
       .catch(done);
   });
 
-  it.only('should be able to retrieve array of application ids', (done) => {
+  it('should be able to retrieve array of application ids', (done) => {
     store.search({
       term: 'vr',
       skipAdditionalLookup: true
