@@ -137,6 +137,7 @@ Retrieves a list of apps that results of searching by the given term. Options:
 * `country`: the two letter country code to get the similar apps
   from. Defaults to `us`.
 * `lang`: language code for the result text. Defaults to `en-us`.
+* `fullDetail`: (optional, defaults to `true`): set to false to skip extra lookup request. Apps won't have such fields as description or last updated date.
 
 Example:
 
