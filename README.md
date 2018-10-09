@@ -243,7 +243,7 @@ Retrieves a page of reviews for the app. Options:
 * `id`: the iTunes "trackId" of the app, for example `553834731` for Candy Crush Saga. Either this or the `appId` should be provided.
 * `appId`: the iTunes "bundleId" of the app, for example `com.midasplayer.apps.candycrushsaga` for Candy Crush Saga. Either this or the `id` should be provided.
 * `country`: the two letter country code to get the reviews from. Defaults to `us`.
-* `page`: the review page number to retrieve. Defaults to `0`, maximum allowed is `9`.
+* `page`: the review page number to retrieve. Defaults to `1`, maximum allowed is `9`.
 * `sort`: the review sort order. Defaults to `store.sort.RECENT`, available options are `store.sort.RECENT` and `store.sort.HELPFUL`.
 
 Example:
