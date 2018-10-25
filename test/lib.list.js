@@ -52,6 +52,7 @@ describe('List method', () => {
       assert.equal(app.genreId, '6014');
 
       assert.equal(app.price, '0.00000');
+      assert(app.free);
 
       assert.isString(app.developer);
       if (app.developerWebsite) {
