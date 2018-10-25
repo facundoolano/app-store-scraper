@@ -96,7 +96,7 @@ Example:
 var store = require('app-store-scraper');
 
 store.list({
-  collection: store.collection.TOP_FREE_IPAD
+  collection: store.collection.TOP_FREE_IOS
   num: 2
 })
 .then(console.log)

@@ -48,11 +48,10 @@ describe('List method', () => {
     .then((apps) => apps.map((app) => {
       assert.isString(app.description);
 
-      assert.equal(app.genres[0], 'Games');
-      assert.equal(app.genreIds[0], '6014');
+      assert.equal(app.genre, 'Games');
+      assert.equal(app.genreId, '6014');
 
-      assert.equal(app.price, '0');
-      assert(app.free);
+      assert.equal(app.price, '0.00000');
 
       assert.isString(app.developer);
       if (app.developerWebsite) {
