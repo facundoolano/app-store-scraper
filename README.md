@@ -89,7 +89,6 @@ Retrieves a list of applications from one of the collections at iTunes. Options:
 * `fullDetail`: If this is set to `true`, an extra request will be
   made to get extra attributes of the resulting applications (like
   those returned by the `app` method).
-* `idsOnly`: (optional, defaults to `false`): skip extra lookup request. Search results will contain array of application ids.
 
 Example:
 
