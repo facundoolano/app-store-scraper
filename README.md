@@ -81,8 +81,8 @@ Results:
 
 Retrieves a list of applications from one of the collections at iTunes. Options:
 
-* `category`: the category to look up. This is a number associated with the genre for the application. Defaults to an empty string. An example value is `6014` currently maps to the `Games` category.
 * `collection`: the collection to look up. Defaults to `collection.TOP_FREE_IOS`, available options can be found [here](https://github.com/facundoolano/app-store-scraper/blob/master/lib/constants.js#L3).
+* `category`: the category to look up. This is a number associated with the genre for the application. Defaults to no specific category. Available options can be found [here](https://github.com/facundoolano/app-store-scraper/blob/master/lib/constants.js#L19).
 * `country`: the two letter country code to get the list from. Defaults to `us`.
 * `num`: the amount of elements to retrieve. Defaults to `50`, maximum
   allowed is `200`.
@@ -114,8 +114,8 @@ Returns:
     developer: 'Steve Howse',
     developerUrl: 'https://itunes.apple.com/us/developer/steve-howse/id867992583?mt=8&uo=2',
     developerId: '867992583',
-    genres: ['Games'],
-    genreIds: ['6014'],
+    genres: 'Games',
+    genreId: '6014',
     released: '2016-03-25' },
   { id: '1046846443',
     title: 'Hungry Shark World',
@@ -124,8 +124,8 @@ Returns:
     developer: 'Ubisoft',
     developerUrl: 'https://itunes.apple.com/us/developer/ubisoft/id317644720?mt=8&uo=2',
     developerId: '317644720',
-    genres: ['Games'],
-    genreIds: ['6014'],
+    genres: 'Games',
+    genreId: '6014',
     released: '2016-05-04' } ]
 ```
 
