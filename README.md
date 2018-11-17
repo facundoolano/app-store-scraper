@@ -81,6 +81,7 @@ Results:
 
 Retrieves a list of applications from one of the collections at iTunes. Options:
 
+* `category`: the category to look up. This is a number associated with the genre for the application. Defaults to an empty string. An example value is `6014` currently maps to the `Games` category.
 * `collection`: the collection to look up. Defaults to `collection.TOP_FREE_IOS`, available options can be found [here](https://github.com/facundoolano/app-store-scraper/blob/master/lib/constants.js#L3).
 * `country`: the two letter country code to get the list from. Defaults to `us`.
 * `num`: the amount of elements to retrieve. Defaults to `50`, maximum
