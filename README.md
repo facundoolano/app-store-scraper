@@ -13,6 +13,7 @@ Available methods:
 - [app](#app): Retrieves the full detail of an application.
 - [list](#list): Retrieves a list of applications from one of the collections at iTunes.
 - [search](#search): Retrieves a list of apps that results of searching by the given term.
+- [developer](#developer): Retrieves a list of apps by the given developer id.
 - [suggest](#suggest): Given a string returns up to 50 suggestions to complete a search query term.
 - [similar](#similar): Returns the list of "customers also bought" apps shown in the app's detail page.
 - [reviews](#reviews): Retrieves a page of reviews for the app.
@@ -171,6 +172,38 @@ Results:
     title: 'Panda Pop',
     (...)
   }
+]
+```
+
+### developer
+Retrieves a list of applications by the give developer id. Options:
+
+* `devId`: the iTunes "artistId" of the developer, for example `284882218` for Facebook.
+* `country`: the two letter country code to get the app details from. Defaults to `us`. Note this also affects the language of the data.
+
+Example:
+
+```javascript
+var store = require('app-store-scraper');
+
+store.developer({devId: 284882218}).then(console.log).catch(console.log);
+```
+
+Results:
+
+```js
+[
+  { id: 284882215,
+    appId: 'com.facebook.Facebook',
+    title: 'Facebook',
+    (...)
+  },
+  { id: 454638411,
+    appId: 'com.facebook.Messenger',
+    title: 'Messenger',
+    (...)
+  },
+  (...)
 ]
 ```
 
