@@ -1,28 +1,32 @@
 'use strict';
 
 const assert = require('chai').assert;
+const assertValidApp = require('./common').assertValidApp;
 const assertValidUrl = require('./common').assertValidUrl;
 const store = require('../index');
 
-function assertValidApp (app) {
-  // list now returns less fields than the other methods
-  assert.isString(app.title);
-  assertValidUrl(app.url);
-  assertValidUrl(app.icon);
-  return app;
-}
-
 describe('List method', () => {
-  it('should fetch a valid application list for the given collection', () => {
+  it('should fetch a valid application list for the given category and collection', () => {
     return store.list({
+      category: store.category.GAMES_ACTION,
       collection: store.collection.TOP_FREE_IOS
     })
     .then((apps) => apps.map(assertValidApp))
-    .then((apps) => apps.map((app) => assert.isNotEmpty(app.title)));
+    .then((apps) => apps.map((app) => assert(app.free)));
+  });
+
+  it('should validate the category', () => {
+    return store.list({
+      category: 'wrong',
+      collection: store.collection.TOP_FREE_IOS
+    })
+    .then(assert.fail)
+    .catch((e) => assert.equal(e.message, 'Invalid category wrong'));
   });
 
   it('should validate the collection', () => {
     return store.list({
+      category: store.category.GAMES_ACTION,
       collection: 'wrong'
     })
     .then(assert.fail)
@@ -31,6 +35,7 @@ describe('List method', () => {
 
   it('should validate the results number', () => {
     return store.list({
+      category: store.category.GAMES_ACTION,
       collection: store.collection.TOP_FREE_IOS,
       num: 250
     })

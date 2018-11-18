@@ -97,7 +97,8 @@ Example:
 var store = require('app-store-scraper');
 
 store.list({
-  collection: store.collection.TOP_FREE_IOS
+  collection: store.collection.TOP_FREE_IPAD,
+  category: store.category.GAMES_ACTION,
   num: 2
 })
 .then(console.log)
@@ -108,25 +109,35 @@ Returns:
 
 ```js
 [ { id: '1091944550',
+    appId: 'com.hypah.io.slither',
     title: 'slither.io',
     icon: 'http://is4.mzstatic.com/image/thumb/Purple30/v4/68/d7/4d/68d74df4-f4e7-d4a4-a8ea-dbab686e5554/mzl.ujmngosn.png/100x100bb-85.png',
     url: 'https://itunes.apple.com/us/app/slither.io/id1091944550?mt=8&uo=2',
+    price: 0,
+    currency: 'USD',
+    free: true,
+    description: 'Play against other people online! ...',
     developer: 'Steve Howse',
     developerUrl: 'https://itunes.apple.com/us/developer/steve-howse/id867992583?mt=8&uo=2',
     developerId: '867992583',
-    genres: 'Games',
+    genre: 'Games',
     genreId: '6014',
-    released: '2016-03-25' },
+    released: '2016-03-25T10:01:46-07:00' },
   { id: '1046846443',
+    appId: 'com.ubisoft.hungrysharkworld',
     title: 'Hungry Shark World',
     icon: 'http://is5.mzstatic.com/image/thumb/Purple60/v4/08/1a/8d/081a8d06-b4d5-528b-fa8e-f53646b6f797/mzl.ehtjvlft.png/100x100bb-85.png',
     url: 'https://itunes.apple.com/us/app/hungry-shark-world/id1046846443?mt=8&uo=2',
+    price: 0,
+    currency: 'USD',
+    free: true,
+    description: 'The stunning sequel to Hungry ...',
     developer: 'Ubisoft',
     developerUrl: 'https://itunes.apple.com/us/developer/ubisoft/id317644720?mt=8&uo=2',
     developerId: '317644720',
-    genres: 'Games',
+    genre: 'Games',
     genreId: '6014',
-    released: '2016-05-04' } ]
+    released: '2016-05-04T09:43:06-07:00' } ]
 ```
 
 ### search
