@@ -47,14 +47,14 @@ describe('List method', () => {
     return store.list({
       collection: store.collection.TOP_FREE_GAMES_IOS,
       fullDetail: true,
-      num: 5
+      num: 3
     })
     .then((apps) => apps.map(assertValidApp))
     .then((apps) => apps.map((app) => {
       assert.isString(app.description);
 
-      assert.equal(app.genre, 'Games');
-      assert.equal(app.genreId, '6014');
+      assert.equal(app.primaryGenre, 'Games');
+      assert.equal(app.primaryGenreId, '6014');
 
       assert.equal(app.price, '0.00000');
       assert(app.free);
