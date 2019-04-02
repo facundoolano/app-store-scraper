@@ -73,6 +73,11 @@ describe('App method', () => {
         .then((app) => {
           assert.isNumber(app.ratings);
           assert.isObject(app.histogram);
+          assert.isNumber(app.histogram['1']);
+          assert.isNumber(app.histogram['2']);
+          assert.isNumber(app.histogram['3']);
+          assert.isNumber(app.histogram['4']);
+          assert.isNumber(app.histogram['5']);
         });
     });
   });
