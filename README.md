@@ -24,6 +24,7 @@ Retrieves the full detail of an application. Options:
 * `id`: the iTunes "trackId" of the app, for example `553834731` for Candy Crush Saga. Either this or the `appId` should be provided.
 * `appId`: the iTunes "bundleId" of the app, for example `com.midasplayer.apps.candycrushsaga` for Candy Crush Saga. Either this or the `id` should be provided.
 * `country`: the two letter country code to get the app details from. Defaults to `us`. Note this also affects the language of the data.
++ `ratings`: load additional ratings information like `ratings` number and `histogram`
 
 Example:
 
@@ -75,7 +76,22 @@ Results:
   supportedDevices:
    [ 'iPhone-3GS',
      'iPadWifi',
-     ... ],
+     ... ]}
+```
+
+Example with `ratings` option:
+
+```javascript
+var store = require('app-store-scraper');
+
+store.app({id: 553834731, ratings: true}).then(console.log).catch(console.log);
+```
+
+Results:
+
+```javascript
+{ id: 553834731,
+  appId: 'com.midasplayer.apps.candycrushsaga',
   ratings: 652230,
   histogram: {
     '1': 7004,
@@ -83,7 +99,8 @@ Results:
     '3': 26848,
     '4': 140625,
     '5': 471103
-  }}
+  }
+}
 ```
 
 ### list
