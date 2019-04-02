@@ -1,14 +1,14 @@
 'use strict';
 
 const assert = require('chai').assert;
-const store = require('../index');
+const ratings = require('../lib/ratings');
 
 const id = '553834731';
 const appId = 'com.midasplayer.apps.candycrushsaga';
 
 describe('Ratings method', () => {
   it('should fetch valid ratings data by id', () => {
-    return store.ratings({id})
+    return ratings({id})
       .then((ratings) => {
         assert.isObject(ratings);
         assert.isNumber(ratings.ratings);
@@ -23,9 +23,9 @@ describe('Ratings method', () => {
 
   it('should fetch valid ratings data by id and country', () => {
     let ratingsForUs, ratingsForFr;
-    return store.ratings({id})
+    return ratings({id})
       .then((ratings) => {ratingsForUs = ratings;})
-      .then(() => store.ratings({id, country: 'fr'}))
+      .then(() => ratings({id, country: 'fr'}))
       .then((ratings) => {ratingsForFr = ratings;})
       .then(() => {
         assert.notDeepEqual(ratingsForUs, ratingsForFr);
