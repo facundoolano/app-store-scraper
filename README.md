@@ -75,7 +75,15 @@ Results:
   supportedDevices:
    [ 'iPhone-3GS',
      'iPadWifi',
-     ... ] }
+     ... ],
+  ratings: 652230,
+  histogram: {
+    '1': 7004,
+    '2': 6650,
+    '3': 26848,
+    '4': 140625,
+    '5': 471103
+  }}
 ```
 
 ### list
