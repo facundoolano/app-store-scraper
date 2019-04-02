@@ -68,7 +68,6 @@ describe('App method', () => {
         });
     });
 
-
     it('should fetch app with bundle id', () => {
       return store.app({appId: 'com.midasplayer.apps.candycrushsaga', ratings: true})
         .then((app) => {
@@ -76,9 +75,7 @@ describe('App method', () => {
           assert.isObject(app.histogram);
         });
     });
-
-  })
-
+  });
 
   it('should fetch app with bundle id', () => {
     return store.app({appId: 'com.midasplayer.apps.candycrushsaga'})
