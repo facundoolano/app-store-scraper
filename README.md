@@ -92,6 +92,9 @@ Results:
 ```javascript
 { id: 553834731,
   appId: 'com.midasplayer.apps.candycrushsaga',
+
+  // ... like above
+
   ratings: 652230,
   histogram: {
     '1': 7004,
