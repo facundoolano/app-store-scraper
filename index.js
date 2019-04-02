@@ -11,8 +11,7 @@ const methods = {
   developer: require('./lib/developer'),
   suggest: require('./lib/suggest'),
   similar: require('./lib/similar'),
-  reviews: require('./lib/reviews'),
-  ratings: require('./lib/ratings')
+  reviews: require('./lib/reviews')
 };
 
 function memoized (opts) {
