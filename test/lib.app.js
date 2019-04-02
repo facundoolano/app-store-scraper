@@ -17,6 +17,14 @@ describe('App method', () => {
         assert(app.score > 0);
         assert(app.score <= 5);
 
+        assert.isNumber(app.ratings);
+        assert.isObject(app.histogram);
+        assert.isNumber(app.histogram['1']);
+        assert.isNumber(app.histogram['2']);
+        assert.isNumber(app.histogram['3']);
+        assert.isNumber(app.histogram['4']);
+        assert.isNumber(app.histogram['5']);
+
         assert.isNumber(app.reviews);
 
         assert.isString(app.description);
@@ -57,6 +65,8 @@ describe('App method', () => {
         assert.equal(app.id, '553834731');
         assert.equal(app.title, 'Candy Crush Saga');
         assert.equal(app.url, 'https://itunes.apple.com/us/app/candy-crush-saga/id553834731?mt=8&uo=4');
+        assert.isNumber(app.ratings);
+        assert.isObject(app.histogram);
       });
   });
 
