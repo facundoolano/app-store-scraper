@@ -17,6 +17,7 @@ Available methods:
 - [suggest](#suggest): Given a string returns up to 50 suggestions to complete a search query term.
 - [similar](#similar): Returns the list of "customers also bought" apps shown in the app's detail page.
 - [reviews](#reviews): Retrieves a page of reviews for the app.
+- [ratings](#ratings): Retrieves the ratings for the app.
 
 ### app
 Retrieves the full detail of an application. Options:
@@ -24,6 +25,7 @@ Retrieves the full detail of an application. Options:
 * `id`: the iTunes "trackId" of the app, for example `553834731` for Candy Crush Saga. Either this or the `appId` should be provided.
 * `appId`: the iTunes "bundleId" of the app, for example `com.midasplayer.apps.candycrushsaga` for Candy Crush Saga. Either this or the `id` should be provided.
 * `country`: the two letter country code to get the app details from. Defaults to `us`. Note this also affects the language of the data.
++ `ratings`: load additional ratings information like `ratings` number and `histogram`
 
 Example:
 
@@ -75,7 +77,34 @@ Results:
   supportedDevices:
    [ 'iPhone-3GS',
      'iPadWifi',
-     ... ] }
+     ... ]}
+```
+
+Example with `ratings` option:
+
+```javascript
+var store = require('app-store-scraper');
+
+store.app({id: 553834731, ratings: true}).then(console.log).catch(console.log);
+```
+
+Results:
+
+```javascript
+{ id: 553834731,
+  appId: 'com.midasplayer.apps.candycrushsaga',
+
+  // ... like above
+
+  ratings: 652230,
+  histogram: {
+    '1': 7004,
+    '2': 6650,
+    '3': 26848,
+    '4': 140625,
+    '5': 471103
+  }
+}
 ```
 
 ### list
@@ -325,6 +354,41 @@ Returns:
     url: 'https://itunes.apple.com/us/review?id=553834731&type=Purple%20Software' },
   (...)
 ]
+```
+
+### ratings
+
+Retrieves the ratings for the app. Options:
+
+* `id`: the iTunes "trackId" of the app, for example `553834731` for Candy Crush Saga. Either this or the `appId` should be provided.
+* `appId`: the iTunes "bundleId" of the app, for example `com.midasplayer.apps.candycrushsaga` for Candy Crush Saga. Either this or the `id` should be provided.
+* `country`: the two letter country code to get the reviews from. Defaults to `us`.
+
+Example:
+
+```js
+var store = require('app-store-scraper');
+
+store.ratings({
+  appId: 'com.midasplayer.apps.candycrushsaga',
+})
+.then(console.log)
+.catch(console.log);
+```
+
+Returns:
+
+```js
+{
+  ratings: 652719,
+  histogram: {
+    '1': 7012,
+    '2': 6655,
+    '3': 26876,
+    '4': 140680,
+    '5': 471496
+  }
+}
 ```
 
 ### Memoization

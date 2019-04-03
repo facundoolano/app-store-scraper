@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/facundoolano/app-store-scraper#readme",
   "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
     "debug": "^2.2.0",
     "memoizee": "^0.3.10",
     "ramda": "^0.21.0",
