@@ -8,7 +8,7 @@ due to changes in source pages being scraped.
 
 * Operating System:
 * Node version:
-* google-play-scraper version:
+* app-play-scraper version:
 
 ### Description: 
 Describe your issue here
