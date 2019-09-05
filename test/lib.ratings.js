@@ -28,7 +28,7 @@ describe('Ratings method', () => {
       .then(() => store.ratings({id, country: 'fr'}))
       .then((ratings) => {ratingsForFr = ratings;})
       .then(() => {
-        console.log('ratingsForUs', ratingsForUs)
+        // console.log('ratingsForUs', ratingsForUs)
         assert.notDeepEqual(ratingsForUs, ratingsForFr);
       });
   });
