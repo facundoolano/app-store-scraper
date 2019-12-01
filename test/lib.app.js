@@ -10,7 +10,7 @@ describe('App method', () => {
       .then((app) => {
         assert.equal(app.appId, 'com.midasplayer.apps.candycrushsaga');
         assert.equal(app.title, 'Candy Crush Saga');
-        assert.equal(app.url, 'https://itunes.apple.com/us/app/candy-crush-saga/id553834731?mt=8&uo=4');
+        assert.equal(app.url, 'https://apps.apple.com/us/app/candy-crush-saga/id553834731?uo=4');
         assertValidUrl(app.icon);
 
         assert.isNumber(app.score);
@@ -87,7 +87,7 @@ describe('App method', () => {
       .then((app) => {
         assert.equal(app.id, '553834731');
         assert.equal(app.title, 'Candy Crush Saga');
-        assert.equal(app.url, 'https://itunes.apple.com/us/app/candy-crush-saga/id553834731?mt=8&uo=4');
+        assert.equal(app.url, 'https://apps.apple.com/us/app/candy-crush-saga/id553834731?uo=4');
         assert.isNotOk(app.ratings);
         assert.isNotOk(app.histogram);
       });
@@ -98,7 +98,7 @@ describe('App method', () => {
       .then((app) => {
         assert.equal(app.appId, 'com.midasplayer.apps.candycrushsaga');
         assert.equal(app.title, 'Candy Crush Saga');
-        assert.equal(app.url, 'https://itunes.apple.com/ar/app/candy-crush-saga/id553834731?mt=8&uo=4');
+        assert.equal(app.url, 'https://apps.apple.com/ar/app/candy-crush-saga/id553834731?uo=4');
       });
   });
 
@@ -107,7 +107,7 @@ describe('App method', () => {
       .then((app) => {
         assert.equal(app.appId, 'com.midasplayer.apps.candycrushsaga');
         assert.equal(app.title, 'Candy Crush Saga');
-        assert.equal(app.url, 'https://itunes.apple.com/fr/app/candy-crush-saga/id553834731?mt=8&uo=4');
+        assert.equal(app.url, 'https://apps.apple.com/fr/app/candy-crush-saga/id553834731?uo=4');
       });
   });
 

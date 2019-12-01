@@ -27,7 +27,7 @@ describe('Search method', () => {
     return store.search({country: 'fr', term: 'Panda vs Zombies'})
     .then((apps) => {
       apps.map(assertValidApp);
-      assert(apps[0]['url'].slice(0, 27) === 'https://itunes.apple.com/fr', 'should return french app');
+      assert(apps[0]['url'].startsWith('https://apps.apple.com/fr'), 'should return french app');
     });
   });
 

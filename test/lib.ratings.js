@@ -4,7 +4,6 @@ const assert = require('chai').assert;
 const store = require('../index');
 
 const id = '553834731';
-const appId = 'com.midasplayer.apps.candycrushsaga';
 
 describe('Ratings method', () => {
   it('should fetch valid ratings data by id', () => {
@@ -24,11 +23,14 @@ describe('Ratings method', () => {
   it('should fetch valid ratings data by id and country', () => {
     let ratingsForUs, ratingsForFr;
     return store.ratings({id})
-      .then((ratings) => {ratingsForUs = ratings;})
+      .then((ratings) => {
+        ratingsForUs = ratings;
+      })
       .then(() => store.ratings({id, country: 'fr'}))
-      .then((ratings) => {ratingsForFr = ratings;})
+      .then((ratings) => {
+        ratingsForFr = ratings;
+      })
       .then(() => {
-        console.log('ratingsForUs', ratingsForUs)
         assert.notDeepEqual(ratingsForUs, ratingsForFr);
       });
   });
