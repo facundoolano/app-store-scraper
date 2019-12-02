@@ -20,9 +20,9 @@ function assertValid (review) {
 describe('Reviews method', () => {
   it('should retrieve the reviews of an app', () => {
     return store.reviews({id: '553834731'})
-    .then((reviews) => {
-      reviews.map(assertValid);
-    });
+      .then((reviews) => {
+        reviews.map(assertValid);
+      });
   });
 
   it('should validate the sort', () => {
@@ -30,8 +30,8 @@ describe('Reviews method', () => {
       id: '553834731',
       sort: 'invalid'
     })
-    .then(assert.fail)
-    .catch((e) => assert.equal(e.message, 'Invalid sort invalid'));
+      .then(assert.fail)
+      .catch((e) => assert.equal(e.message, 'Invalid sort invalid'));
   });
 
   it('should validate the page', () => {
@@ -39,8 +39,8 @@ describe('Reviews method', () => {
       id: '553834731',
       page: 11
     })
-    .then(assert.fail)
-    .catch((e) => assert.equal(e.message, 'Page cannot be greater than 10'));
+      .then(assert.fail)
+      .catch((e) => assert.equal(e.message, 'Page cannot be greater than 10'));
   });
 
   it('should be able to set requestOptions', (done) => {

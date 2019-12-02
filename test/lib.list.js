@@ -11,8 +11,8 @@ describe('List method', () => {
       category: store.category.GAMES_ACTION,
       collection: store.collection.TOP_FREE_IOS
     })
-    .then((apps) => apps.map(assertValidApp))
-    .then((apps) => apps.map((app) => assert(app.free)));
+      .then((apps) => apps.map(assertValidApp))
+      .then((apps) => apps.map((app) => assert(app.free)));
   });
 
   it('should validate the category', () => {
@@ -20,8 +20,8 @@ describe('List method', () => {
       category: 'wrong',
       collection: store.collection.TOP_FREE_IOS
     })
-    .then(assert.fail)
-    .catch((e) => assert.equal(e.message, 'Invalid category wrong'));
+      .then(assert.fail)
+      .catch((e) => assert.equal(e.message, 'Invalid category wrong'));
   });
 
   it('should validate the collection', () => {
@@ -29,8 +29,8 @@ describe('List method', () => {
       category: store.category.GAMES_ACTION,
       collection: 'wrong'
     })
-    .then(assert.fail)
-    .catch((e) => assert.equal(e.message, 'Invalid collection wrong'));
+      .then(assert.fail)
+      .catch((e) => assert.equal(e.message, 'Invalid collection wrong'));
   });
 
   it('should validate the results number', () => {
@@ -39,8 +39,8 @@ describe('List method', () => {
       collection: store.collection.TOP_FREE_IOS,
       num: 250
     })
-    .then(assert.fail)
-    .catch((e) => assert.equal(e.message, 'Cannot retrieve more than 200 apps'));
+      .then(assert.fail)
+      .catch((e) => assert.equal(e.message, 'Cannot retrieve more than 200 apps'));
   });
 
   it('should fetch apps with fullDetail', () => {
@@ -49,22 +49,22 @@ describe('List method', () => {
       fullDetail: true,
       num: 3
     })
-    .then((apps) => apps.map(assertValidApp))
-    .then((apps) => apps.map((app) => {
-      assert.isString(app.description);
+      .then((apps) => apps.map(assertValidApp))
+      .then((apps) => apps.map((app) => {
+        assert.isString(app.description);
 
-      // getting some entertainment apps here, skipping the check
-      // assert.equal(app.primaryGenre, 'Games');
-      // assert.equal(app.primaryGenreId, '6014');
+        // getting some entertainment apps here, skipping the check
+        // assert.equal(app.primaryGenre, 'Games');
+        // assert.equal(app.primaryGenreId, '6014');
 
-      assert.equal(app.price, '0.00000');
-      assert(app.free);
+        assert.equal(app.price, '0.00000');
+        assert(app.free);
 
-      assert.isString(app.developer);
-      if (app.developerWebsite) {
-        assertValidUrl(app.developerWebsite);
-      }
-    }));
+        assert.isString(app.developer);
+        if (app.developerWebsite) {
+          assertValidUrl(app.developerWebsite);
+        }
+      }));
   });
 
   it('should be able to set requestOptions', (done) => {
