@@ -4,7 +4,7 @@
   "description": "scrape data from the itunes app store",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --timeout 8000 && eslint ."
+    "test": "mocha --timeout 8000"
   },
   "repository": {
     "type": "git",
