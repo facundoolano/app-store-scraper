@@ -318,9 +318,8 @@ Retrieves a page of reviews for the app. Options:
 * `country`: the two letter country code to get the reviews from. Defaults to `us`.
 * `page`: the review page number to retrieve. Defaults to `1`, maximum allowed is `10`.
 * `sort`: the review sort order. Defaults to `store.sort.RECENT`, available options are `store.sort.RECENT` and `store.sort.HELPFUL`.
-* `format`: the format used to retrieve data. Defaults to `store.format.JSON`, available options are `store.format.JSON` and `store.sort.XML`.
-
-*Note: using `format: store.format.XML` has the added vantage of returning the review date*
+* `format`: the format used under the hood to retrieve data. Defaults to `store.format.JSON`, available options are `store.format.JSON` and `store.sort.XML`.  
+Note: `format: store.format.XML` sacrifices some performances but also returns the review date, actually not available with the json format*
 
 Example:
 

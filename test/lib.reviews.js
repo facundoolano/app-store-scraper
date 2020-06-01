@@ -61,19 +61,19 @@ describe('Reviews method', () => {
 
   const TESTS_MAP = [
     {
-      description: 'should retrive the same reviews regarless of the format - candycrush',
+      description: 'should retrive the same reviews, regardless of the format - candycrush',
       input: { appId: 'com.midasplayer.apps.candycrushsaga' }
     },
     {
-      description: 'should retrive the same reviews regarless of the format - facebook',
+      description: 'should retrive the same reviews, regardless of the format - facebook',
       input: { id: '284882215', page: 2 }
     },
     {
-      description: 'should retrive the same reviews regarless of the format - snapchat',
+      description: 'should retrive the same reviews, regardless of the format - snapchat',
       input: { id: '447188370', sort: store.sort.HELPFUL }
     },
     {
-      description: 'should retrive the same reviews regarless of the format - google',
+      description: 'should retrive the same reviews, regardless of the format - google',
       input: { appId: 'com.google.googlemobile', country: 'it' }
     }
   ];
