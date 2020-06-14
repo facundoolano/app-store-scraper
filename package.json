@@ -1,6 +1,6 @@
 {
   "name": "app-store-scraper",
-  "version": "0.16.2",
+  "version": "0.16.3",
   "description": "scrape data from the itunes app store",
   "main": "index.js",
   "scripts": {
