@@ -25,6 +25,7 @@ Retrieves the full detail of an application. Options:
 * `id`: the iTunes "trackId" of the app, for example `553834731` for Candy Crush Saga. Either this or the `appId` should be provided.
 * `appId`: the iTunes "bundleId" of the app, for example `com.midasplayer.apps.candycrushsaga` for Candy Crush Saga. Either this or the `id` should be provided.
 * `country`: the two letter country code to get the app details from. Defaults to `us`. Note this also affects the language of the data.
+* `lang`: language code for the result text. Defaults to undefined, so country specific language should be used automatically.
 + `ratings`: load additional ratings information like `ratings` number and `histogram`
 
 Example:
@@ -114,6 +115,7 @@ Retrieves a list of applications from one of the collections at iTunes. Options:
 * `collection`: the collection to look up. Defaults to `collection.TOP_FREE_IOS`, available options can be found [here](https://github.com/facundoolano/app-store-scraper/blob/master/lib/constants.js#L3).
 * `category`: the category to look up. This is a number associated with the genre for the application. Defaults to no specific category. Available options can be found [here](https://github.com/facundoolano/app-store-scraper/blob/master/lib/constants.js#L19).
 * `country`: the two letter country code to get the list from. Defaults to `us`.
+* `lang`: language code for the result text. Defaults to undefined, so country specific language should be used automatically.
 * `num`: the amount of elements to retrieve. Defaults to `50`, maximum
   allowed is `200`.
 * `fullDetail`: If this is set to `true`, an extra request will be
@@ -220,6 +222,7 @@ Retrieves a list of applications by the give developer id. Options:
 
 * `devId`: the iTunes "artistId" of the developer, for example `284882218` for Facebook.
 * `country`: the two letter country code to get the app details from. Defaults to `us`. Note this also affects the language of the data.
+* `lang`: language code for the result text. Defaults to undefined, so country specific language should be used automatically.
 
 Example:
 
