@@ -14,6 +14,7 @@ Available methods:
 - [list](#list): Retrieves a list of applications from one of the collections at iTunes.
 - [search](#search): Retrieves a list of apps that results of searching by the given term.
 - [developer](#developer): Retrieves a list of apps by the given developer id.
+- [privacy](#privacy): Display the privacy details for the app.
 - [suggest](#suggest): Given a string returns up to 50 suggestions to complete a search query term.
 - [similar](#similar): Returns the list of "customers also bought" apps shown in the app's detail page.
 - [reviews](#reviews): Retrieves a page of reviews for the app.
@@ -248,6 +249,52 @@ Results:
   },
   (...)
 ]
+```
+
+### privacy
+
+Retrieves the ratings for the app. Currently only for US App Store. Options:
+
+* `id`: the iTunes "trackId" of the app, for example `553834731` for Candy Crush Saga.
+
+Example:
+
+```js
+var store = require('app-store-scraper');
+
+store.privacy({
+  id: 324684580,
+})
+.then(console.log)
+.catch(console.log);
+```
+
+Returns:
+
+```js
+{
+  "managePrivacyChoicesUrl": null,
+  "privacyTypes": [
+    {
+      "privacyType": "Data Used to Track You",
+      "identifier": "DATA_USED_TO_TRACK_YOU",
+      "description": "The following data may be used to track you across apps and websites owned by other companies:",
+      "dataCategories": [
+        {
+          "dataCategory": "Contact Info",
+          "identifier": "CONTACT_INFO",
+          "dataTypes": [
+            "Email Address",
+            "Phone Number"
+          ]
+        },
+        ...
+      ],
+      "purposes": []
+    },
+    ...
+  ]
+}
 ```
 
 ### suggest

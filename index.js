@@ -9,6 +9,7 @@ const methods = {
   list: require('./lib/list'),
   search: require('./lib/search'),
   developer: require('./lib/developer'),
+  privacy: require('./lib/privacy'),
   suggest: require('./lib/suggest'),
   similar: require('./lib/similar'),
   reviews: require('./lib/reviews'),
