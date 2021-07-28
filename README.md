@@ -393,6 +393,7 @@ Returns:
     score: 5,
     title: 'Great way to pass time or unwind',
     text: 'I was a fan of Bejeweled many moons ago...',
+    updated: '2021-07-26T18:26:24-07:00',
     url: 'https://itunes.apple.com/us/review?id=553834731&type=Purple%20Software' },,
   { id: '1472864708',
     userName: 'Jennamaxkidd',
@@ -401,6 +402,7 @@ Returns:
     score: 1,
     title: 'Help! THE PROBLEM IS NOT FIXED!',
     text: 'STILL HAVING THE SAME ISSUE.  It\'s happening again...',
+    updated: '2021-07-26T18:04:41-07:00',
     url: 'https://itunes.apple.com/us/review?id=553834731&type=Purple%20Software' },
   (...)
 ]
