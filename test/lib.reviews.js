@@ -15,6 +15,9 @@ function assertValid (review) {
   assert(review.score > 0);
   assert(review.score <= 5);
   assertValidUrl(review.url);
+  assert.isNotNull(new Date(review.updated).toJSON());
+  assert.isString(review.updated);
+  assert(review.updated);
 }
 
 describe('Reviews method', () => {
