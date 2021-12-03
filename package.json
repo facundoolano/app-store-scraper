@@ -29,6 +29,7 @@
     "memoizee": "^0.3.10",
     "ramda": "^0.21.0",
     "request": "^2.87.0",
+    "throttled-request": "^0.1.1",
     "xml2js": "^0.4.16"
   },
   "devDependencies": {
@@ -39,6 +40,6 @@
     "eslint-plugin-promise": "^1.1.0",
     "eslint-plugin-standard": "^4.0.1",
     "mocha": "^6.2.2",
-    "validator": "^5.2.0"
+    "validator": "^13.7.0"
   }
 }
