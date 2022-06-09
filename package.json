@@ -27,7 +27,7 @@
     "cheerio": "^1.0.0-rc.2",
     "debug": "^2.2.0",
     "memoizee": "^0.3.10",
-    "ramda": "^0.21.0",
+    "ramda": "^0.27.2",
     "request": "^2.87.0",
     "throttled-request": "^0.1.1",
     "xml2js": "^0.4.16"
