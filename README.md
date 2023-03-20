@@ -315,12 +315,12 @@ Results:
 
 ```js
 [
-  { term: 'panda pop' },
-  { term: 'panda pop free' },
-  { term: 'panda' },
-  { term: 'panda express' },
-  { term: 'panda games' },
-  { term: 'panda pop 2' },
+  { term: 'panda pop', priority: '7557' },
+  { term: 'panda pop free', priority: '5796' },
+  { term: 'panda', priority: '5512' },
+  { term: 'panda express', priority: '5174' },
+  { term: 'panda games', priority: '4773' },
+  { term: 'panda pop 2', priority: '4695' },
   ...
 ]
 ```
