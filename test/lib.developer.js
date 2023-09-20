@@ -13,7 +13,7 @@ describe('Developer method', () => {
         apps.map(assertValidApp);
         apps.map((app) => {
           assert.equal(app.developerId, FACEBOOK_ID);
-          assert.equal(app.developer, 'Facebook, Inc.');
+          assert.equal(app.developer, 'Meta Platforms, Inc.');
         });
       });
   });

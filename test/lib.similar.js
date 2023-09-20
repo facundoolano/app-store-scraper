@@ -13,7 +13,7 @@ describe('Similar method', () => {
   // FIXME improve code
   // skipping as this functionality doesn't work anymore
   // see https://github.com/facundoolano/app-store-scraper/issues/49
-  it.skip('should a different list in fr country', () => {
+  it('should a different list in fr country', () => {
     return store.similar({id: '553834731'})
       .then((usApps) => {
         return store.similar({id: '553834731', country: 'fr'}).then(function (frApps) {
