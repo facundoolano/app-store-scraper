@@ -10,9 +10,6 @@ describe('Similar method', () => {
       .then((apps) => apps.map(assertValidApp));
   });
 
-  // FIXME improve code
-  // skipping as this functionality doesn't work anymore
-  // see https://github.com/facundoolano/app-store-scraper/issues/49
   it('should a different list in fr country', () => {
     return store.similar({id: '553834731'})
       .then((usApps) => {
