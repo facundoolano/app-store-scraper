@@ -131,6 +131,7 @@ describe('App method', () => {
       .catch(done);
   });
 
+  // This test is skipped because it causes mocha to never ends.
   it('should memoize the results when memoize enabled', () => {
     const memoized = store.memoized();
     return memoized.app({id: '553834731'})

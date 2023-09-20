@@ -4,7 +4,7 @@
   "description": "scrape data from the itunes app store",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --timeout 8000 --exit",
+    "test": "mocha --timeout 8000",
     "lint": "eslint ."
   },
   "repository": {
@@ -27,7 +27,7 @@
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
     "debug": "^2.2.0",
-    "memoizee": "^0.3.10",
+    "memoizee": "^0.4.15",
     "ramda": "^0.29.0",
     "request": "^2.87.0",
     "throttled-request": "^0.1.1",
