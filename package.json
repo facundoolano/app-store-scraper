@@ -1,46 +1,47 @@
 {
-  "name": "app-store-scraper",
-  "version": "0.18.0",
-  "description": "scrape data from the itunes app store",
-  "main": "index.js",
-  "scripts": {
-    "test": "mocha --timeout 8000",
-    "lint": "eslint ."
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/facundoolano/app-store-scraper.git"
-  },
-  "keywords": [
-    "mac",
-    "app",
-    "store",
-    "itunes",
-    "scraper"
-  ],
-  "author": "Facundo Olano",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/facundoolano/app-store-scraper/issues"
-  },
-  "homepage": "https://github.com/facundoolano/app-store-scraper#readme",
-  "dependencies": {
-    "cheerio": "^1.0.0-rc.2",
-    "debug": "^2.2.0",
-    "memoizee": "^0.4.15",
-    "ramda": "^0.29.0",
-    "request": "^2.87.0",
-    "throttled-request": "^0.1.1",
-    "xml2js": "^0.6.2"
-  },
-  "devDependencies": {
-    "chai": "^4.3.8",
-    "eslint": "^8.49.0",
-    "eslint-config-semistandard": "^6.0.1",
-    "eslint-config-standard": "^5.1.0",
-    "eslint-plugin-promise": "^1.1.0",
-    "eslint-plugin-standard": "^4.0.1",
-    "mocha": "^10.2.0",
-    "validator": "^13.11.0"
-  }
+    "name": "app-store-scraper",
+    "version": "0.18.0",
+    "description": "scrape data from the itunes app store",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "test": "mocha --timeout 8000",
+        "lint": "eslint ."
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/facundoolano/app-store-scraper.git"
+    },
+    "keywords": [
+        "mac",
+        "app",
+        "store",
+        "itunes",
+        "scraper"
+    ],
+    "author": "Facundo Olano",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/facundoolano/app-store-scraper/issues"
+    },
+    "homepage": "https://github.com/facundoolano/app-store-scraper#readme",
+    "dependencies": {
+        "cheerio": "^1.0.0-rc.2",
+        "debug": "^2.2.0",
+        "got": "^14.4.5",
+        "memoizee": "^0.4.15",
+        "ramda": "^0.29.0",
+        "throttled-request": "^0.1.1",
+        "xml2js": "^0.6.2"
+    },
+    "devDependencies": {
+        "chai": "^4.3.8",
+        "eslint": "^8.49.0",
+        "eslint-config-semistandard": "^6.0.1",
+        "eslint-config-standard": "^5.1.0",
+        "eslint-plugin-promise": "^1.1.0",
+        "eslint-plugin-standard": "^4.0.1",
+        "mocha": "^10.2.0",
+        "validator": "^13.11.0"
+    }
 }

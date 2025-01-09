@@ -1,19 +1,16 @@
-'use strict';
-
-const store = require('../index');
-const assertValidApp = require('./common').assertValidApp;
-const assert = require('chai').assert;
+import store from '../index.js';
+import { assertValidApp } from './common.js';
+import { assert } from 'chai';
 
 describe('Similar method', () => {
   it('should fetch a valid application list', () => {
-    return store.similar({id: '553834731'})
+    return store.similar({ id: '553834731' })
       .then((apps) => apps.map(assertValidApp));
   });
-
   it('should a different list in fr country', () => {
-    return store.similar({id: '553834731'})
+    return store.similar({ id: '553834731' })
       .then((usApps) => {
-        return store.similar({id: '553834731', country: 'fr'}).then(function (frApps) {
+        return store.similar({ id: '553834731', country: 'fr' }).then(function (frApps) {
           return {
             fr: frApps,
             us: usApps
@@ -31,7 +28,6 @@ describe('Similar method', () => {
         assert(areDifferent, '2 similar list from different languages must be differents');
       });
   });
-
   it('should be able to set requestOptions', (done) => {
     store.similar({
       id: '553834731',
@@ -41,7 +37,7 @@ describe('Similar method', () => {
     })
       .then(() => done('should not resolve'))
       .catch((err) => {
-        assert.equal(err.response.statusCode, 501);
+        assert.equal(err.status, 501);
         done();
       })
       .catch(done);
