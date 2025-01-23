@@ -466,12 +466,12 @@ Returns:
 
 ```js
 [
-	{
-		"versionDisplay": "3.416.0",
-		"releaseNotes": "• Minor UI enhancements and bug fixes",
-		"releaseDate": "2024-08-14",
-		"releaseTimestamp": "2024-08-14T14:52:32Z"
-	}
+  {
+    "versionDisplay": "3.416.0",
+    "releaseNotes": "• Minor UI enhancements and bug fixes",
+    "releaseDate": "2024-08-14",
+    "releaseTimestamp": "2024-08-14T14:52:32Z"
+  }
 ]
 ```
 
