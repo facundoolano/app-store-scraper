@@ -19,6 +19,7 @@ Available methods:
 - [similar](#similar): Returns the list of "customers also bought" apps shown in the app's detail page.
 - [reviews](#reviews): Retrieves a page of reviews for the app.
 - [ratings](#ratings): Retrieves the ratings for the app.
+- [versionHistory](#versionHistory): Retrieves the version history for the app.
 
 ### app
 Retrieves the full detail of an application. Options:
@@ -441,6 +442,37 @@ Returns:
     '5': 471496
   }
 }
+```
+
+### versionHistory
+
+Retrieves the version history for the app. Options:
+
+* `id`: the iTunes "trackId" of the app, for example `553834731` for Candy Crush Saga.
+
+Example:
+
+```js
+var store = require('app-store-scraper');
+
+store.versionHistory({
+  id: 324684580,
+})
+.then(console.log)
+.catch(console.log);
+```
+
+Returns:
+
+```js
+[
+	{
+		"versionDisplay": "3.416.0",
+		"releaseNotes": "• Minor UI enhancements and bug fixes",
+		"releaseDate": "2024-08-14",
+		"releaseTimestamp": "2024-08-14T14:52:32Z"
+	}
+]
 ```
 
 ### Memoization
