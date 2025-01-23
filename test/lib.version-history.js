@@ -3,7 +3,7 @@
 const store = require('../index');
 const assert = require('chai').assert;
 
-function assertValid(versionHistoryType) {
+function assertValid (versionHistoryType) {
   assert.isString(versionHistoryType.versionDisplay);
   assert.isString(versionHistoryType.releaseNotes);
   assert.isString(versionHistoryType.releaseDate);
