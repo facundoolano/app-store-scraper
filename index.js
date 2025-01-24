@@ -13,7 +13,8 @@ const methods = {
   suggest: require('./lib/suggest'),
   similar: require('./lib/similar'),
   reviews: require('./lib/reviews'),
-  ratings: require('./lib/ratings')
+  ratings: require('./lib/ratings'),
+  versionHistory: require('./lib/version-history')
 };
 
 function memoized (opts) {
