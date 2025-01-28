@@ -3,6 +3,7 @@
 const store = require('../index');
 const assert = require('chai').assert;
 const assertValidUrl = require('./common').assertValidUrl;
+const R = require('ramda');
 
 function assertValid (review) {
   assert.isString(review.id);
@@ -59,5 +60,43 @@ describe('Reviews method', () => {
         done();
       })
       .catch(done);
+  });
+
+  const TESTS_MAP = [
+    {
+      description: 'should retrive the same reviews, regardless of the format - candycrush',
+      input: { appId: 'com.midasplayer.apps.candycrushsaga' }
+    },
+    {
+      description: 'should retrive the same reviews, regardless of the format - facebook',
+      input: { id: '284882215', page: 2 }
+    },
+    {
+      description: 'should retrive the same reviews, regardless of the format - snapchat',
+      input: { id: '447188370', sort: store.sort.HELPFUL }
+    },
+    {
+      description: 'should retrive the same reviews, regardless of the format - google',
+      input: { appId: 'com.google.googlemobile', country: 'it' }
+    }
+  ];
+
+  TESTS_MAP.map(({description, input}) => {
+    it(description, function () {
+      return Promise.all([
+        store.reviews({
+          ...input,
+          format: store.format.XML
+        }),
+        store.reviews({
+          ...input,
+          format: store.format.JSON
+        })
+      ])
+        .then((results) => {
+          const [xmlReview, jsonReview] = results;
+          assert.deepEqual(jsonReview, xmlReview.map(R.omit(['date'])));
+        });
+    });
   });
 });
