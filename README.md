@@ -294,7 +294,8 @@ Returns:
       "purposes": []
     },
     ...
-  ]
+  ],
+  "privacyPolicyUrl": "https://king.com/privacyPolicy"
 }
 ```
 
