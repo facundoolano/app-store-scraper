@@ -1,8 +1,6 @@
-'use strict';
-
-const store = require('../index');
-const assert = require('chai').assert;
-const assertValidUrl = require('./common').assertValidUrl;
+import store from '../index.js';
+import { assert } from 'chai';
+import { assertValidUrl } from './common.js';
 
 function assertValid (review) {
   assert.isString(review.id);
@@ -19,15 +17,13 @@ function assertValid (review) {
   assert.isString(review.updated);
   assert(review.updated);
 }
-
 describe('Reviews method', () => {
   it('should retrieve the reviews of an app', () => {
-    return store.reviews({id: '553834731'})
+    return store.reviews({ id: '553834731' })
       .then((reviews) => {
         reviews.map(assertValid);
       });
   });
-
   it('should validate the sort', () => {
     return store.reviews({
       id: '553834731',
@@ -36,7 +32,6 @@ describe('Reviews method', () => {
       .then(assert.fail)
       .catch((e) => assert.equal(e.message, 'Invalid sort invalid'));
   });
-
   it('should validate the page', () => {
     return store.reviews({
       id: '553834731',
@@ -45,7 +40,6 @@ describe('Reviews method', () => {
       .then(assert.fail)
       .catch((e) => assert.equal(e.message, 'Page cannot be greater than 10'));
   });
-
   it('should be able to set requestOptions', (done) => {
     store.reviews({
       id: '553834731',
@@ -55,7 +49,7 @@ describe('Reviews method', () => {
     })
       .then(() => done('should not resolve'))
       .catch((err) => {
-        assert.equal(err.response.statusCode, 501);
+        assert.equal(err.status, 501);
         done();
       })
       .catch(done);

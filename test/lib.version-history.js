@@ -1,7 +1,5 @@
-'use strict';
-
-const store = require('../index');
-const assert = require('chai').assert;
+import store from '../index.js';
+import { assert } from 'chai';
 
 function assertValid (versionHistoryType) {
   assert.isString(versionHistoryType.versionDisplay);

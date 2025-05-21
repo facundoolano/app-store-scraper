@@ -14,5 +14,8 @@
     "prefer-const": "error",
     "no-else-return": "error",
     "object-shorthand": ["error", "properties"]
-  }
+  },
+  "parserOptions": {
+    "ecmaVersion":8
+   }
 }
