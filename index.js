@@ -24,7 +24,7 @@ const methods = {
   ratings,
   versionHistory
 };
-function memoized(opts) {
+function memoized (opts) {
   const cacheOpts = Object.assign({
     primitive: true,
     normalizer: JSON.stringify,
