@@ -10,6 +10,7 @@ import suggest from './lib/suggest.js';
 import similar from './lib/similar.js';
 import reviews from './lib/reviews.js';
 import ratings from './lib/ratings.js';
+import versionHistory from './lib/version-history.js';
 
 const methods = {
   app,
@@ -20,9 +21,10 @@ const methods = {
   suggest,
   similar,
   reviews,
-  ratings
+  ratings,
+  versionHistory
 };
-function memoized (opts) {
+function memoized(opts) {
   const cacheOpts = Object.assign({
     primitive: true,
     normalizer: JSON.stringify,
